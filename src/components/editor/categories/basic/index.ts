@@ -1,0 +1,86 @@
+import { basic_contents } from "./content";
+import { basic_icons } from "./icons";
+
+export const basic_blocks = [
+  {
+    id: "container",
+    class: "basic-block",
+    label: "Container",
+    media: basic_icons.container,
+    content: basic_contents.container,
+    category: "Basic",
+  },
+  {
+    id: "column-block-1",
+    class: "basic-block",
+    label: "1 Column",
+    media: basic_icons.column_1,
+    content: basic_contents.column_1,
+    category: "Basic",
+  },
+  {
+    id: "column-block-2",
+    class: "basic-block",
+    label: "2 Column",
+    media: basic_icons.column_2,
+    content: basic_contents.column_2,
+    category: "Basic",
+  },
+  {
+    id: "column-block-3",
+    class: "basic-block",
+    label: "3 Column",
+    media: basic_icons.column_3,
+    content: basic_contents.column_3,
+    category: "Basic",
+  },
+
+  {
+    id: "column-block-3_7",
+    class: "basic-block",
+    label: "2 Column 3/7",
+    media: basic_icons.column_3_7,
+    content: basic_contents.column_3_7,
+    category: "Basic",
+  },
+  {
+    id: "text",
+    class: "basic-block",
+    label: "Text",
+    media: basic_icons.text,
+    content: basic_contents.text,
+    category: "Basic",
+  },
+  {
+    id: "link",
+    class: "basic-block",
+    label: "Link",
+    media: basic_icons.link,
+    content: basic_contents.link,
+    category: "Basic",
+  },
+  {
+    id: "image",
+    class: "basic-block",
+    label: "Image",
+    media: basic_icons.image,
+    content: basic_contents.image,
+    category: "Basic",
+  },
+  {
+    id: "youtube",
+    class: "basic-block",
+    label: "YouTube",
+    media: basic_icons.youtube,
+    content: basic_contents.youtube,
+    category: "Basic",
+  },
+  {
+    id: "map",
+    class: "basic-block",
+    label: "Map",
+    media: basic_icons.map,
+    content: basic_contents.map,
+    category: "Basic",
+  },
+];

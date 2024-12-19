@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import grapesjs, { Editor } from "grapesjs";
 import "grapesjs/dist/css/grapes.min.css";
-import { editor_blocks } from "./categories";
+import { category_blocks } from "./categories";
 
 const GrapesJSEditor: React.FC = () => {
   const editorRef = useRef<any>(null);
@@ -34,48 +34,19 @@ const GrapesJSEditor: React.FC = () => {
       });
 
       const blockManager = editorRef?.current.BlockManager;
-      editor_blocks.forEach((block) => {
-        blockManager.add(block.id, block);
-      });
-      blockManager.remove("text-basic");
-      blockManager.remove("link-block");
-      blockManager.remove("quote");
 
-      editorRef.current.on("load", (editor: Editor) => {
-        editor.setComponents(content);
-        const iframe = editorRef.current.Canvas.getFrameEl();
-        if (iframe) {
-          const iframeDocument =
-            iframe.contentDocument || iframe.contentWindow?.document;
-          const body = iframeDocument?.body;
-
-          if (body) {
-            body.classList.add("gjs-dashed");
-            body.classList.add("p-2");
-          }
-        }
-      });
-      editorRef.current.on("run:preview", () => {
-        const iframe = editorRef.current.Canvas.getFrameEl();
-        if (iframe) {
-          const iframeDocument =
-            iframe.contentDocument || iframe.contentWindow?.document;
-          const body = iframeDocument?.body;
-          if (body) {
-            body.classList.remove("gjs-dashed");
-          }
-        }
-      });
-      editorRef.current.on("stop:preview", () => {
-        const iframe = editorRef.current.Canvas.getFrameEl();
-        if (iframe) {
-          const iframeDocument =
-            iframe.contentDocument || iframe.contentWindow?.document;
-          const body = iframeDocument?.body;
-          if (body) {
-            body.classList.add("gjs-dashed");
-          }
-        }
+      blockManager.clear();
+      category_blocks.forEach((block) => {
+        blockManager.add(block.id, {
+          label: block.label,
+          media: block.media,
+          content: block.content,
+          attributes: { class: block.class },
+          category: {
+            label: block.category,
+            open: false,
+          },
+        });
       });
     }
 

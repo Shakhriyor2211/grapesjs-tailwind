@@ -1,4 +1,3 @@
-import "./App.css";
 import GrapesJSEditor from "./components/editor";
 
 function App() {
